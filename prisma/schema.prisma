@@ -14,16 +14,15 @@ datasource db {
 model User {
   id String @id @default(uuid())
   name String
-  email String 
-  password String 
+  email String
+  password String
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())
 
   @@map("users")
-
 }
 
-model Category {
+model Category{
   id String @id @default(uuid())
   name String
   created_at DateTime? @default(now())
@@ -31,12 +30,11 @@ model Category {
 
   @@map("categories")
   products Product[]
-
 }
 
-model Product {
+model Product{
   id String @id @default(uuid())
-  name String 
+  name String
   price String
   description String
   banner String
@@ -75,7 +73,7 @@ model Item{
   product Product @relation(fields: [product_id], references: [id])
 
   @@map("items")
-
   order_id String
   product_id String
+
 }
